@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Finder & Manager - Home</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #recipes-container {
+        display: none;
+      }
+
+      .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      body {
+        padding-top: 50px;
+      }
+
+      header {
+        margin-bottom: 0;
+      }
+
+      .navbar {
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-primary text-white text-center py-5">
+      <h1>Recipe Finder</h1>
+      <p class="lead">Discover and manage your favorite recipes!</p>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="home.html">Recipe Finder & Manager</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="favorites.html">Favorites</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container my-5" style="margin-top: 100px">
+      <h2 class="text-center mb-4">Search for Recipes</h2>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          id="query-input"
+          class="form-control"
+          placeholder="Enter a dish or ingredient"
+          aria-label="Recipe Search"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" id="search-button">Search</button>
+        </div>
+      </div>
+
+      <h2 class="my-4" id="results-header" style="display: none">
+        Recipe Results
+      </h2>
+      <div id="recipes-container" class="row"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document
+        .getElementById("search-button")
+        .addEventListener("click", function () {
+          const query = document.getElementById("query-input").value;
+
+          if (query.trim() !== "") {
+            // Show the recipe results header and container
+            document.getElementById("results-header").style.display = "block";
+            document.getElementById("recipes-container").style.display = "flex";
+          } else {
+            document.getElementById("results-header").style.display = "none";
+            document.getElementById("recipes-container").style.display = "none";
+          }
+        });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
